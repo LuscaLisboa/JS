@@ -8,8 +8,15 @@ body {
     overflow: hidden;
 }
 
-#glCanvas {
+.canvas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.glCanvas {
     width: 100vw;
-    height: 100vh;
+    height: 50vh;
     display: block;
 }
