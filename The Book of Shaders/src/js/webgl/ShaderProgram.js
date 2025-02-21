@@ -7,7 +7,7 @@ export class ShaderProgram {
     }
 
     createShader(type, source) {
-        const shader = this.gl.createShader(type); // const shader = type; ????
+        const shader = this.gl.createShader(type);
         this.gl.shaderSource(shader, source);
         this.gl.compileShader(shader);
 
