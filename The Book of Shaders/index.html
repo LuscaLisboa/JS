@@ -5,14 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Book of Shaders</title>
     <link rel="stylesheet" href="./src/styles/main.css">
+
+     <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    
+    <!-- Tema Elipse -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/eclipse.min.css">
+
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js"></script>
 </head>
+
 <body>
 
     <div id="content">
         <h1>Hello World</h1>
         <p>vec2, vec3, vec4, functions, precision float</p>
         <div class="codeCanvas">
-            <pre><code>#version 300 es
+            <textarea id="codeEditor01">#version 300 es
 precision highp float;
                 
 out vec4 fragColor;
@@ -25,7 +36,7 @@ void main() {
                 
 vec4 magenta() {
     return vec4(1.0f, 0.0f, 1.0f, 1.0f);
-}</code></pre>
+}            </textarea>
             <canvas id="canvas01" class="glCanvas"></canvas>
         </div>
         <hr>
@@ -33,8 +44,7 @@ vec4 magenta() {
         <p>float, vec2, vec3, vec4, mat2, mat3, mat4, sampler2D, samplerCube</p>
         <p id="funtri">sin(), cos(), tan(), asin(), acos(), atan(), pow(), exp(), log(), sqrt(), abs(), sign(), floor(), ceil(), fract(), mod(), min(), max(), clamp().</p>
         <div class="codeCanvas">
-            <pre><code>
-                #version 300 es
+            <textarea id="codeEditor02">#version 300 es
 precision highp float;
 
 uniform vec2 u_resolution;  // Canvas size (width,height)
@@ -66,13 +76,31 @@ float abs_cos_time() {
 
 float tan_time(){
     return tan(u_time);
-}
-            </code></pre>
+}            </textarea>
             <canvas id="canvas02" class="glCanvas"></canvas>
         </div>
     </div>
 
     <script type="module" src="./src/js/main.js"></script>
 
+    <script>
+        CodeMirror.fromTextArea(document.getElementById("codeEditor01"), {
+            mode: "x-shader/x-fragment",       
+            lineNumbers: true,        
+            theme: "eclipse",         
+            readOnly: true,           
+            lineWrapping: true,  
+            viewportMargin: Infinity,     
+        });
+        CodeMirror.fromTextArea(document.getElementById("codeEditor02"), {
+            mode: "x-shader/x-fragment",       
+            lineNumbers: true,        
+            theme: "eclipse",         
+            readOnly: true,           
+            lineWrapping: true,
+            viewportMargin: Infinity,       
+        });
+    </script>
+      
 </body>
 </html>

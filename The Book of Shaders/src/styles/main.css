@@ -10,13 +10,11 @@
     padding: 0;
     background-color: rgb(255, 255, 255);
     font-family: 'Aptos Display', sans-serif;
-    font-size: 20px;
 }
 
 body {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    border-color: rgb(100, 100, 100);
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 h1 {
@@ -36,7 +34,7 @@ hr {
 }
 
 #content {
-    width: 60vw;
+    width: 50vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -44,33 +42,32 @@ hr {
 
 .codeCanvas {
     margin-top: 2px;
-    padding: 2px;
-    padding-left: 10px;
     margin-left: 25px;
     margin-right: 25px;
     display: flex;
     justify-content: space-between;
-    align-items: top;
-    height: 100%;
-    border-radius: 15px;
 }
 
 .codeCanvas, pre, code{
     text-align: left;
-    background-color: rgb(245, 245, 245);
+}
+.CodeMirror {
+    overflow: hidden;
 }
 
-code {
-    font-size: 0.6em;
+.CodeMirror-lines {
+    font-size: 0.7em;
+    background-color: rgb(255, 255, 255);
 }
 
 .glCanvas {
-    margin: 2px;
     border-radius: 15px;
-    width: 50%;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    width: auto;
+    border: none;
 }
 
-
 #funtri {
-    font-size: 55%;
+    font-size: 0.7em;
 }
