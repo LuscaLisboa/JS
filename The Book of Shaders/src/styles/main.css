@@ -34,10 +34,11 @@ hr {
 }
 
 #content {
-    width: 50vw;
+    width: 75vw;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-size: 1.25em;
 }
 
 .codeCanvas {
@@ -45,13 +46,14 @@ hr {
     margin-left: 25px;
     margin-right: 25px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .codeCanvas, pre, code{
     text-align: left;
 }
 .CodeMirror {
+    height: auto;
     overflow: hidden;
 }
 
@@ -64,7 +66,8 @@ hr {
     border-radius: 15px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    width: auto;
+    width: 100px;
+    height: 200px;
     border: none;
 }
 

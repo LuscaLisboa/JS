@@ -20,87 +20,26 @@
 <body>
 
     <div id="content">
+
         <h1>Hello World</h1>
         <p>vec2, vec3, vec4, functions, precision float</p>
-        <div class="codeCanvas">
-            <textarea id="codeEditor01">#version 300 es
-precision highp float;
-                
-out vec4 fragColor;
-                
-vec4 magenta();
-                
-void main() {
-    fragColor = magenta();
-}
-                
-vec4 magenta() {
-    return vec4(1.0f, 0.0f, 1.0f, 1.0f);
-}            </textarea>
-            <canvas id="canvas01" class="glCanvas"></canvas>
-        </div>
+        <div id="codeCanvas01" class="codeCanvas"></div>
+
         <hr>
+
         <h1>Uniforms</h1>
         <p>float, vec2, vec3, vec4, mat2, mat3, mat4, sampler2D, samplerCube</p>
         <p id="funtri">sin(), cos(), tan(), asin(), acos(), atan(), pow(), exp(), log(), sqrt(), abs(), sign(), floor(), ceil(), fract(), mod(), min(), max(), clamp().</p>
-        <div class="codeCanvas">
-            <textarea id="codeEditor02">#version 300 es
-precision highp float;
+        <div id="codeCanvas02" class="codeCanvas"></div>
 
-uniform vec2 u_resolution;  // Canvas size (width,height)
-uniform vec2 u_mouse;       // mouse position in screen pixels
-uniform float u_time;       // Time in seconds since load
+        <hr>
 
-out vec4 fragColor;
+        <h1>gl_FragCoord</h1>
+        <p></p>
+        <div id="codeCanvas03" class="codeCanvas"></div>
 
-float abs_sin_time();
-float abs_cos_time();
-float tan_time();
-
-void main() {
-    fragColor =  vec4(abs_sin_time(), 0.0, 0.0, 1.0);
-}
-
-
-// sin(u_time):         1 - 0   exponential smooth
-// abs(sin(u_time)):    1 - 0   linear
-float abs_sin_time() {
-    return abs(sin(u_time));
-}
-
-// cos(u_time):         0 - 1   exponential smooth
-// abs(cos(u_time)):    0 - 1   linear
-float abs_cos_time() {
-    return abs(cos(u_time));
-}
-
-float tan_time(){
-    return tan(u_time);
-}            </textarea>
-            <canvas id="canvas02" class="glCanvas"></canvas>
-        </div>
     </div>
 
-    <script type="module" src="./src/js/main.js"></script>
-
-    <script>
-        CodeMirror.fromTextArea(document.getElementById("codeEditor01"), {
-            mode: "x-shader/x-fragment",       
-            lineNumbers: true,        
-            theme: "eclipse",         
-            readOnly: true,           
-            lineWrapping: true,  
-            viewportMargin: Infinity,     
-        });
-        CodeMirror.fromTextArea(document.getElementById("codeEditor02"), {
-            mode: "x-shader/x-fragment",       
-            lineNumbers: true,        
-            theme: "eclipse",         
-            readOnly: true,           
-            lineWrapping: true,
-            viewportMargin: Infinity,       
-        });
-    </script>
-      
+    <script type="module" src="./src/js/main.js"></script>  
 </body>
 </html>
