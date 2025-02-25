@@ -6,12 +6,21 @@ export class Canvas {
             this.canvas = document.querySelector(canvasId);
             this.context = new WebGLContext(this.canvas);
             this.gl = this.context.gl;
+
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+            this.gl.viewport(0, 0,  this.canvas.width, this.canvas.height);
             
             this.shaderProgram = new ShaderProgram(
                 this.gl,
                 vertexShaderSource,
                 fragmentShaderSource
             );
+
+            this.shaderProgram.use();
+
+            const uResolutionLocation = this.gl.getUniformLocation(this.shaderProgram.program, 'u_resolution');
+            this.gl.uniform2f(uResolutionLocation, this.canvas.width, this.canvas.height);
             
             this.init();
             this.animate();
@@ -44,6 +53,8 @@ export class Canvas {
         animate() {
             const render = (time) => {
                 time *= 0.001;  // convert to seconds
+
+                this.shaderProgram.use();
     
                 this.shaderProgram.use();
                 const timeLocation = this.shaderProgram.getUniformLocation('u_time');
