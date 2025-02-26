@@ -6,10 +6,6 @@ export class Canvas {
             this.canvas = document.querySelector(canvasId);
             this.context = new WebGLContext(this.canvas);
             this.gl = this.context.gl;
-
-            this.canvas.width = window.innerWidth;
-            this.canvas.height = window.innerHeight;
-            this.gl.viewport(0, 0,  this.canvas.width, this.canvas.height);
             
             this.shaderProgram = new ShaderProgram(
                 this.gl,
@@ -19,11 +15,21 @@ export class Canvas {
 
             this.shaderProgram.use();
 
-            const uResolutionLocation = this.gl.getUniformLocation(this.shaderProgram.program, 'u_resolution');
-            this.gl.uniform2f(uResolutionLocation, this.canvas.width, this.canvas.height);
-            
+             this.resizeCanvas();
+             window.addEventListener('resize', () => this.resizeCanvas());
+
             this.init();
             this.animate();
+        }
+
+        resizeCanvas() {
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
+
+        this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
+
+        const uResolutionLocation = this.gl.getUniformLocation(this.shaderProgram.program, 'u_resolution');
+        this.gl.uniform2f(uResolutionLocation, this.canvas.width, this.canvas.height);
         }
     
         init() {

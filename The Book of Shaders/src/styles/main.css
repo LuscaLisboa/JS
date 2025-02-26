@@ -45,7 +45,10 @@ hr {
     margin-left: 25px;
     margin-right: 25px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
+    width: 70vw;
+    height: auto;
 }
 
 .codeCanvas, pre, code{
@@ -65,8 +68,8 @@ hr {
     border-radius: 15px;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
-    width: 100px;
-    height: 200px;
+    width: 35vw;
+    height: auto;
     border: none;
 }
 
