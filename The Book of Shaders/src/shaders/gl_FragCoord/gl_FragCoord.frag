@@ -14,8 +14,6 @@ float blue(vec2 st);
 void main() {
     vec2 st = gl_FragCoord.xy / u_resolution;
 
-    vec2 mp = u_mouse.xy / u_resolution;
-
     fragColor = vec4(
         red(st),
         green(st),
